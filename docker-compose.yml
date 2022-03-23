@@ -1,0 +1,9 @@
+version: '3.7'
+
+services:
+  item-api-service:
+    build: ./src
+    volumes:
+      - ./src:/usr/src/app
+    ports:
+      - "8000:80"
