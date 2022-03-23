@@ -1,13 +1,9 @@
 FROM python:3.9
 
-COPY . /usr/src/app
+COPY . /usr/src
 
-WORKDIR /usr/src/app
+WORKDIR /usr
 
-RUN pip install pipreqs
+RUN pip install --no-cache-dir --upgrade -r src/requirements.txt
 
-RUN pipreqs .
-
-RUN pip install --no-cache-dir --upgrade -r requirements.txt
-
-CMD ["uvicorn", "main:app", "--host=0.0.0.0", "--port=80", "--reload"]
+CMD ["uvicorn", "src.main:app", "--host=0.0.0.0", "--port=80", "--reload"]
