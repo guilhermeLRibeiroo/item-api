@@ -7,6 +7,6 @@ app.include_router(ping.router)
 app.include_router(items.router)
 
 
-@app.get('/')
+@app.get('/', include_in_schema=False)
 async def root():
     return RedirectResponse(url='/docs')
