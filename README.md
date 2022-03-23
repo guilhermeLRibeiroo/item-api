@@ -14,4 +14,4 @@ Just an API
 where `docker-compose.yml` is and the API will be running at [localhost:8000](http://localhost:8000)
 
 - To fill the database with tables you need to run `python revision.py` && `python upgrade.py`\
-(usr/src/database/migrations) inside the container using the CLI
+(usr/src/database/migrations) inside the API container using the CLI
