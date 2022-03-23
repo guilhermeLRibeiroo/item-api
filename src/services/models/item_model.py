@@ -7,7 +7,3 @@ class ItemBaseModel(BaseModel):
 
 class ItemRequestModel(ItemBaseModel):
     pass
-
-
-class ItemResponseModel(ItemBaseModel):
-    id: int
