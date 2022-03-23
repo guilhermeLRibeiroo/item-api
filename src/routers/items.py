@@ -1,4 +1,5 @@
 from fastapi import APIRouter
+from src.services import items_service
 
 router = APIRouter(
     prefix='/items',
@@ -13,9 +14,4 @@ router = APIRouter(
 
 @router.get('/', status_code=200, summary="get all items")
 async def get_items():
-    return [
-            {
-                "id": -1,
-                "name": "item test"
-            }
-        ]
+    return items_service.get_all()

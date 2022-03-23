@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
-from routers import ping, items
+from src.routers import ping, items
 
 app = FastAPI()
 app.include_router(ping.router)
