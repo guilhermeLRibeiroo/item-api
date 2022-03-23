@@ -10,5 +10,5 @@ Just an API
 ## Requirements & How to run
 
 - You will need [Docker](https://docs.docker.com/get-docker/).
-- To run this program you just need to run `docker-compose up` where `docker-compose.yml` is 
-and a docker container will automaticaly run
+- To run this program you just need to run `docker-compose up` where `docker-compose.yml` is\
+and a docker container will run at [localhost:8000](http://localhost:8000)
