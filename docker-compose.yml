@@ -1,9 +1,48 @@
-version: '3.7'
+version: "3.7"
 
 services:
-  item-api-service:
+  item_api_service:
     build: ./src
+    container_name: "item_api_service"
     volumes:
       - ./src:/usr/src/app
     ports:
       - "8000:80"
+    depends_on:
+      - item_api_db
+    networks:
+      - backend
+
+  item_api_db:
+    image: "postgres"
+    container_name: "item_api_db"
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data/
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=item_db
+    networks:
+      - backend
+
+  item_db_pg_admin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "admin@admin.com"
+      PGADMIN_DEFAULT_PASSWORD: "admin"
+    ports:
+      - "16543:80"
+    depends_on:
+      - item_api_db
+    networks:
+      - backend
+
+volumes:
+  db_data:
+
+networks:
+  backend:
+    driver: bridge
