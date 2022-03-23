@@ -9,13 +9,13 @@ services:
     ports:
       - "8000:80"
     depends_on:
-      - item_api_db
+      - item_db_service
     networks:
       - backend
 
-  item_api_db:
+  item_db_service:
     image: "postgres"
-    container_name: "item_api_db"
+    container_name: "item_db"
     ports:
       - "5432:5432"
     volumes:
@@ -28,15 +28,16 @@ services:
     networks:
       - backend
 
-  item_db_pg_admin:
+  item_db_pg_admin_service:
     image: dpage/pgadmin4
+    container_name: "item_db_pg_admin_service"
     environment:
       PGADMIN_DEFAULT_EMAIL: "admin@admin.com"
       PGADMIN_DEFAULT_PASSWORD: "admin"
     ports:
       - "16543:80"
     depends_on:
-      - item_api_db
+      - item_db_service
     networks:
       - backend
 
