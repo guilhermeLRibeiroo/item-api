@@ -3,13 +3,19 @@ from fastapi import APIRouter
 router = APIRouter(
     prefix='/ping',
     tags=['ping'],
-    responses={404: {"description": "Not found"}}
+    responses={
+        404: {
+            "description": "Not found"
+        }
+    }
 )
 
 
-@router.get('/')
+@router.get('/', status_code=200, summary="just a ping")
 async def ping():
+    """
+        Returns Pong!
+    """
     return {
-            'statusCode': 200,
-            'description': 'pong!'
-        }
+        "description": "Pong!"
+    }
