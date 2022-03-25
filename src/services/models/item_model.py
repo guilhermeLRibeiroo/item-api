@@ -1,9 +1,5 @@
 from pydantic import BaseModel
 
 
-class ItemBaseModel(BaseModel):
+class ItemRequestModel(BaseModel):
     name: str
-
-
-class ItemRequestModel(ItemBaseModel):
-    pass

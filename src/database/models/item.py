@@ -8,7 +8,7 @@ class Item(BaseModel):
     name = Column(String)
 
     def __repr__(self):
-        return f'<Item name={self.name} />'
+        return f'<Item id={self.id} name={self.name} />'
 
     def to_dict(self):
         return {

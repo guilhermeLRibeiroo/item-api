@@ -15,4 +15,4 @@ def generic_get_by_id(db_model, object_id):
 
 def generic_delete_by_id(db_model, object_id):
     with DBConnector().conn_session() as session:
-        session.query(db_model).filter_by(id=object_id).delete()
+        return session.query(db_model).filter_by(id=object_id).delete()
